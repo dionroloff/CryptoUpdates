@@ -1,13 +1,14 @@
 import React, {Fragment} from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Home from './Home';
+import Header from './Header';
 
 const App = () => {
   return (
     <Fragment>
-      <Home/>
+      <Header/>
     </Fragment>
   );
 };
