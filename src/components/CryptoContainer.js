@@ -7,7 +7,7 @@ import FetchCoinData from "./../Actions/FetchCoinData";
 import CoinCard from "./CoinCard";
 
 class CryptoContainer extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.FetchCoinData();
   }
 
