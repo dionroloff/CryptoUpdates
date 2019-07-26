@@ -1,10 +1,10 @@
-import axios from 'axios';
-import apiBaseURL from './../Utils/Constants';
+import axios from "axios";
+import { apiBaseURL } from "./../Utils/Constants";
 import {
   FETCHING_COIN_DATA,
   FETCHING_COIN_DATA_SUCCESS,
   FETCHING_COIN_DATA_FAIL
-} from './../Utils/ActionTypes';
+} from "./../Utils/ActionTypes";
 
 export default function FetchCoinData() {
   return dispatch => {
@@ -13,10 +13,13 @@ export default function FetchCoinData() {
     return axios
       .get(`${apiBaseURL}/v1/ticker/?limit=10`)
       .then(res => {
-        dispatch({ type: FETCHING_COIN_DATA_SUCCESS, payload: res.data });
+        return dispatch({
+          type: FETCHING_COIN_DATA_SUCCESS,
+          payload: res.data
+        });
       })
-      .catch(e => {
-        dispatch({ type: FETCHING_COIN_DATA_FAIL, payload: e.data });
+      .catch(err => {
+        return dispatch({ type: FETCHING_COIN_DATA_FAIL, payload: err });
       });
   };
 }
